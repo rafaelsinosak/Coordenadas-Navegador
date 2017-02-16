@@ -1,0 +1,28 @@
+<html>
+<body>
+<title>
+	Coordenadas
+</title>
+<p>Coordenadas</p>
+
+<button onclick="getLocalizacao()">Buscar</button>
+<p id="mostrar"></p>
+
+<script>
+var x = document.getElementById("mostrar");
+
+function getLocalizacao() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(mostraPosicao);
+    } else { 
+        x.innerHTML = "Navegador não suporta geolocalização";
+    }
+}
+
+function mostraPosicao(posicao) {
+    x.innerHTML = "Latitude: " + posicao.coords.latitude + 
+    "<br>Longitude: " + posicao.coords.longitude;
+}
+</script>
+</body>
+</html>
